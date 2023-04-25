@@ -1,0 +1,17 @@
+---
+app_name: angular_poc
+current_version: v1
+ruta_directorio: /home/kubernetes/app_node/code/
+container_port: 4200
+host_port: 8080
+
+red_servicio_nombre: "{{ app_name }}-network"
+red_servicio_rango: 10.0.1.0/24
+red_servicio_subnet: 10.0.0.0/16
+red_servicio_gateway: 10.0.1.1
+red_servicio_ip_contenedor: 10.0.1.10
+
+
+app_versions:
+  v1: https://angular.io/generated/zips/router/router.zip
+  v2: https://angular.io/generated/zips/router-tutorial/router-tutorial.zip

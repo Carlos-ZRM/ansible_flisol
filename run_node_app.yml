@@ -1,0 +1,34 @@
+---
+# - name: Creacion y configuracion de ambientes
+#   hosts:
+#   tasks:
+#     - name: Creando aplicacion Angular
+#       block:
+#         - name: Creando Imagen
+#           import_tasks: tasks/create_users.yml
+#           tags:
+#             - full_instalation
+- name: Integracion continua
+  hosts: podman_nodes
+  become: false
+  tasks:
+    - name: Creando imagen de la aplicacion Angular
+      block:
+        - name: Creando Imagen Angular
+          import_tasks: tasks/podman_image.yml
+        - name: Push Image 
+          import_tasks: tasks/podman_image_push.yml
+
+    - name: Creando Aplicacion en contenedores
+      block:
+        - name: Creando contenedor
+          import_tasks: tasks/contenedor_create.yml
+
+
+- name: Despliegue continuo
+  hosts: podman_nodes
+  tasks:
+    - name: Configuracion del ambiente
+      block:
+        - name: Configuracion de NGiNX
+          import_tasks: tasks/configuracion_nginx.yml

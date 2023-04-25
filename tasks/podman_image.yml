@@ -1,0 +1,35 @@
+---
+- name: Crear directorio de la applicacion
+  file:
+    path: "{{ ruta_directorio }}"
+    state: directory
+    mode: "0755"
+
+- name: Eliminar el codigo anterior
+  file:
+    state: absent
+    path: "{{ ruta_directorio }}/*"
+
+- name: Descargar el codigo de la aplicacion (Git clone)
+  unarchive:
+    src: "{{ app_versions[current_version] }}"
+    dest: "{{ ruta_directorio }}"
+    remote_src: true
+    mode: "755"
+
+- name: Descargar el codigo de la aplicacion (Git clone)
+  unarchive:
+    src: "{{ app_versions[current_version] }}"
+    dest: "{{ ruta_directorio }}"
+    remote_src: true
+    mode: "755"
+
+- name: Crear archivo Dockerfile
+  template:
+    src: templates/Dockerfile_angular.j2
+    dest: "{{ruta_directorio}}/Dockerfile"
+    mode: '0644'
+
+# - name: Crear Docker File
+
+# - name: Construir la imagen

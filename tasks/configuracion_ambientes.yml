@@ -1,0 +1,15 @@
+---
+- name: Instalar paquetes
+  package:
+    name: "{{ item }}"
+    state: present
+  loop:
+    - podman
+    - nginx
+    - unzip
+
+- name: Crear directorio para la applicacion
+  file:
+    path: "/etc/app_node"
+    state: directory
+    mode: '0755'

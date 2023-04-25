@@ -1,0 +1,15 @@
+---
+- name: Obtener la IP del contenedor
+  containers.podman.podman_container_info:
+    name: "{{ app_name }}-server"
+  register: informacion_contenedor
+
+- name: Debug
+  debug:
+    var: "{{ informacion_contenedor }}['NetworkSettings'].Networks[].IPAddress"
+  
+- name: Crear archivo de configuracion NGINX
+  template:
+    src: templates/nginx.j2
+    dest: "/etc/nginx/conf.d/{{ app_name }}.conf"
+

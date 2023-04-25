@@ -1,0 +1,18 @@
+---
+- name: Pull de la imagen base
+  containers.podman.podman_image:
+    name: docker.io/library/node
+    tag: 18-alpine
+
+- name: Generar hash
+  shell: openssl rand -hex 8
+  register: hash_imagen
+
+- name: Crear imagen del contenedor
+  containers.podman.podman_image:
+    name: "{{ app_name }}"
+    tag: "{{ hash_imagen.stdout }}"
+    path: "{{ ruta_directorio }}"
+    build:
+      cache: no
+      force_rm: yes
