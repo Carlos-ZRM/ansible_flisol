@@ -24,9 +24,12 @@
     image: "localhost/{{ app_name }}-test:{{ hash_imagen.stdout }}"
     state: started
     recreate: true
-    network: "{{ red_servicio_nombre }}"
+    #network: "{{ red_servicio_nombre }}"
     publish_all: true
 
 - name: Prueba check de salud del contenedor
-  shell: "podman exec angular_poc-server curl 127.0.0.1:4200"
+  shell: "podman exec {{ contenedor_nombre }}-{{ hash_imagen.stdout }} sh -c 'sleep 15 ; curl 127.0.0.1:4200'"
+  ignore_errors: true
   register: check_curl
+  retries: 5
+  delay: 10

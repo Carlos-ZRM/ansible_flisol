@@ -2,7 +2,7 @@
 app_name: angular_poc
 contenedor_nombre: "{{ app_name }}-server"
 current_version: v1
-ruta_directorio: /home/kubernetes/app_node/code/
+ruta_directorio: /home/ubuntu/app_node/code/
 contenedor_puerto: 4200
 host_port: 8080
 

@@ -14,6 +14,8 @@
     dest: "/etc/nginx/conf.d/{{ app_name }}.conf"
 
 - name: Reiniciar nginx
+  become: true
+  become_method: sudo
   ansible.builtin.systemd:
     name: nginx.service
     state: restarted

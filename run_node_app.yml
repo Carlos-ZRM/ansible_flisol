@@ -5,6 +5,8 @@
   tasks:
     - name: Creando entreha continua
       block:
+        - name: Creando Imagen Angular
+          import_tasks: tasks/podman_image.yml
         - name: Ejecutando pruebas del contenedor
           import_tasks:  tasks/podman_imagen_test.yml
       tags:
