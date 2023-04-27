@@ -1,20 +1,14 @@
-- name: Create network
+- name: Creacion de red
   containers.podman.podman_network:
     name: "{{ red_servicio_nombre }}"
-    ip_range: "{{ red_servicio_rango }}"
-    subnet: "{{ red_servicio_subnet}}"
-    gateway: "{{ red_servicio_gateway }}"
+    subnet: "{{ red_servicio_subnet }}"
 
 - name: Crear contenedor de la aplicacion
   containers.podman.podman_container:
-    name: "{{ app_name }}-server"
-    image: "localhost/{{ app_name }}:{{ hash_imagen.stdout }}"
+    name: "{{ contenedor_nombre }}"
+    image: "localhost/{{ app_name }}:latest"
     state: started
-    recreate: yes
-    network: "{{ app_name }}-network"
-    ip: "{{ red_servicio_ip_contenedor }}"
-    ports:
-        - "{{ host_port }}:{{ container_port }}"
-
-
+    recreate: true
+    network: "{{ red_servicio_nombre }}"
+    publish_all: true
 

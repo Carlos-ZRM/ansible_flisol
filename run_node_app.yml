@@ -1,13 +1,5 @@
 ---
-# - name: Creacion y configuracion de ambientes
-#   hosts:
-#   tasks:
-#     - name: Creando aplicacion Angular
-#       block:
-#         - name: Creando Imagen
-#           import_tasks: tasks/create_users.yml
-#           tags:
-#             - full_instalation
+
 - name: Integracion continua
   hosts: podman_nodes
   become: false

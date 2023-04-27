@@ -1,15 +1,15 @@
 ---
 app_name: angular_poc
+contenedor_nombre: "{{ app_name }}-server"
 current_version: v1
 ruta_directorio: /home/kubernetes/app_node/code/
-container_port: 4200
+contenedor_puerto: 4200
 host_port: 8080
 
 red_servicio_nombre: "{{ app_name }}-network"
-red_servicio_rango: 10.0.1.0/24
 red_servicio_subnet: 10.0.0.0/16
-red_servicio_gateway: 10.0.1.1
-red_servicio_ip_contenedor: 10.0.1.10
+red_servicio_puerto_protocolo: "{{ contenedor_puerto }}/tcp"
+
 
 
 app_versions:

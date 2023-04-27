@@ -13,3 +13,7 @@
     path: "/etc/app_node"
     state: directory
     mode: '0755'
+
+# dnf install acl
+# kubernetes ALL = NOPASSWD: /bin/systemctl restart nginx.service
+# setsebool -P httpd_can_network_relay 1

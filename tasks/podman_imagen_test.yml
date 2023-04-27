@@ -4,18 +4,14 @@
     name: docker.io/library/node
     tag: 18-alpine
 
-# - name: Generar hash
-#   shell: openssl rand -hex 8
-#   register: hash_imagen
+- name: Generar hash
+  shell: openssl rand -hex 8
+  register: hash_imagen
 
-# - name: Generar hash
-#   shell: openssl rand -hex 8
-#   register: hash_imagen
-
-- name: Crear imagen del contenedor
+- name: Crear imagen del contenedor para pruebas
   containers.podman.podman_image:
     name: "{{ app_name }}"
-    tag: "latest"
+    tag: "{{ hash_imagen }}"
     path: "{{ ruta_directorio }}"
     build:
       cache: false

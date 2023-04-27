@@ -4,7 +4,7 @@ ENV NG_CLI_ANALYTICS=false
 
 COPY . /src/app
 WORKDIR /src/app
-EXPOSE {{ container_port }}
+EXPOSE {{ contenedor_puerto }}
 RUN npm install
 RUN npm install -g @angular/cli@latest
 CMD ng serve --host=0.0.0.0 --disable-host-check
