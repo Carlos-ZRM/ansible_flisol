@@ -1,6 +1,7 @@
 # {{ ansible_managed }}
 FROM node:18-alpine
 ENV NG_CLI_ANALYTICS=false
+RUN apk add curl
 
 COPY . /src/app
 WORKDIR /src/app

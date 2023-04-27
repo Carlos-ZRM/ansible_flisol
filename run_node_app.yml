@@ -1,5 +1,16 @@
 ---
+- name: Entrega continua
+  hosts: podman_nodes
+  become: false
+  tasks:
+    - name: Creando entreha continua
+      block:
+        - name: Ejecutando pruebas del contenedor
+          import_tasks:  tasks/podman_imagen_test.yml
+      tags:
+        - entrega-continua
 
+    
 - name: Integracion continua
   hosts: podman_nodes
   become: false
@@ -10,11 +21,17 @@
           import_tasks: tasks/podman_image.yml
         - name: Push Image 
           import_tasks: tasks/podman_image_push.yml
+      tags:
+        - integracion-continua
+        - pipeline
 
     - name: Creando Aplicacion en contenedores
       block:
         - name: Creando contenedor
           import_tasks: tasks/contenedor_create.yml
+      tags:
+        - integracion-continua
+        - pipeline
 
 
 - name: Despliegue continuo
@@ -24,3 +41,6 @@
       block:
         - name: Configuracion de NGiNX
           import_tasks: tasks/configuracion_nginx.yml
+      tags:
+        - despliegue-continuo
+        - pipeline

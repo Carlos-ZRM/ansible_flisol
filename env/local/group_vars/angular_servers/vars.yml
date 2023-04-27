@@ -15,3 +15,6 @@ red_servicio_puerto_protocolo: "{{ contenedor_puerto }}/tcp"
 app_versions:
   v1: https://angular.io/generated/zips/router/router.zip
   v2: https://angular.io/generated/zips/router-tutorial/router-tutorial.zip
+
+quay_usuario: carlos_reyes2bcore+flisol
+quay_pass: 34AC9H2LRQGGNTXM5L4MWDFK5XNHDCPWRNXV463UKABL0ZOSS98J02T0084RX3ES

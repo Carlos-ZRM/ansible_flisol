@@ -1,4 +1,5 @@
 ---
+
 - name: Pull de la imagen base
   containers.podman.podman_image:
     name: docker.io/library/node
@@ -10,9 +11,22 @@
 
 - name: Crear imagen del contenedor para pruebas
   containers.podman.podman_image:
-    name: "{{ app_name }}"
-    tag: "{{ hash_imagen }}"
+    name: "{{ app_name }}-test"
+    tag: "{{ hash_imagen.stdout }}"
     path: "{{ ruta_directorio }}"
     build:
       cache: false
       force_rm: true
+
+- name: Crear el contenedor de pruebas
+  containers.podman.podman_container:
+    name: "{{ contenedor_nombre }}-{{ hash_imagen.stdout }}"
+    image: "localhost/{{ app_name }}-test:{{ hash_imagen.stdout }}"
+    state: started
+    recreate: true
+    network: "{{ red_servicio_nombre }}"
+    publish_all: true
+
+- name: Prueba check de salud del contenedor
+  shell: "podman exec angular_poc-server curl 127.0.0.1:4200"
+  register: check_curl

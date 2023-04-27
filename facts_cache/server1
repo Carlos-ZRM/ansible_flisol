@@ -34,17 +34,17 @@
     "ansible_date_time": {
         "date": "2023-04-27",
         "day": "27",
-        "epoch": "1682606281",
-        "epoch_int": "1682606281",
-        "hour": "14",
-        "iso8601": "2023-04-27T14:38:01Z",
-        "iso8601_basic": "20230427T143801607080",
-        "iso8601_basic_short": "20230427T143801",
-        "iso8601_micro": "2023-04-27T14:38:01.607080Z",
-        "minute": "38",
+        "epoch": "1682610220",
+        "epoch_int": "1682610220",
+        "hour": "15",
+        "iso8601": "2023-04-27T15:43:40Z",
+        "iso8601_basic": "20230427T154340684880",
+        "iso8601_basic_short": "20230427T154340",
+        "iso8601_micro": "2023-04-27T15:43:40.684880Z",
+        "minute": "43",
         "month": "04",
-        "second": "01",
-        "time": "14:38:01",
+        "second": "40",
+        "time": "15:43:40",
         "tz": "UTC",
         "tz_dst": "UTC",
         "tz_offset": "+0000",
@@ -297,14 +297,14 @@
         "SELINUX_USE_CURRENT_RANGE": "",
         "SHELL": "/bin/bash",
         "SHLVL": "1",
-        "SSH_CLIENT": "11.0.0.1 44702 22",
-        "SSH_CONNECTION": "11.0.0.1 44702 11.0.0.141 22",
+        "SSH_CLIENT": "11.0.0.1 51990 22",
+        "SSH_CONNECTION": "11.0.0.1 51990 11.0.0.141 22",
         "SSH_TTY": "/dev/pts/1",
         "TERM": "xterm-256color",
         "USER": "kubernetes",
         "XDG_RUNTIME_DIR": "/run/user/1000",
         "XDG_SESSION_CLASS": "user",
-        "XDG_SESSION_ID": "22",
+        "XDG_SESSION_ID": "27",
         "XDG_SESSION_TYPE": "tty",
         "_": "/usr/bin/python3"
     },
@@ -369,40 +369,40 @@
         "type": "loopback"
     },
     "ansible_loadavg": {
-        "15m": 0.17919921875,
-        "1m": 0.52001953125,
-        "5m": 0.31591796875
+        "15m": 0.384765625,
+        "1m": 1.16064453125,
+        "5m": 0.84375
     },
     "ansible_local": {},
     "ansible_lsb": {},
     "ansible_lvm": "N/A",
     "ansible_machine": "x86_64",
     "ansible_machine_id": "232cd47646e34f989c0cb193d8cb769b",
-    "ansible_memfree_mb": 1214,
+    "ansible_memfree_mb": 559,
     "ansible_memory_mb": {
         "nocache": {
-            "free": 2854,
-            "used": 543
+            "free": 1314,
+            "used": 2083
         },
         "real": {
-            "free": 1214,
+            "free": 559,
             "total": 3397,
-            "used": 2183
+            "used": 2838
         },
         "swap": {
             "cached": 0,
-            "free": 3396,
+            "free": 3394,
             "total": 3396,
-            "used": 0
+            "used": 2
         }
     },
     "ansible_memtotal_mb": 3397,
     "ansible_mounts": [
         {
-            "block_available": 7838408,
+            "block_available": 7723884,
             "block_size": 4096,
             "block_total": 8891899,
-            "block_used": 1053491,
+            "block_used": 1168015,
             "device": "/dev/vda5",
             "fstype": "btrfs",
             "inode_available": 0,
@@ -410,7 +410,7 @@
             "inode_used": 0,
             "mount": "/",
             "options": "rw,seclabel,relatime,compress=zstd:1,discard=async,space_cache=v2,subvolid=256,subvol=/root,bind",
-            "size_available": 32106119168,
+            "size_available": 31637028864,
             "size_total": 36421218304,
             "uuid": "3975d5e5-e66a-44c3-90f7-dc2d1c7859d1"
         },
@@ -431,10 +431,10 @@
             "uuid": "efdb1b15-eb33-4f1d-acb8-885e29df6783"
         },
         {
-            "block_available": 7838408,
+            "block_available": 7723884,
             "block_size": 4096,
             "block_total": 8891899,
-            "block_used": 1053491,
+            "block_used": 1168015,
             "device": "/dev/vda5",
             "fstype": "btrfs",
             "inode_available": 0,
@@ -442,7 +442,7 @@
             "inode_used": 0,
             "mount": "/home",
             "options": "rw,seclabel,relatime,compress=zstd:1,discard=async,space_cache=v2,subvolid=257,subvol=/home,bind",
-            "size_available": 32106119168,
+            "size_available": 31637028864,
             "size_total": 36421218304,
             "uuid": "3975d5e5-e66a-44c3-90f7-dc2d1c7859d1"
         },
@@ -534,7 +534,7 @@
     "ansible_ssh_host_key_ed25519_public_keytype": "ssh-ed25519",
     "ansible_ssh_host_key_rsa_public": "AAAAB3NzaC1yc2EAAAADAQABAAABgQDp+d/8EQOQ3UMLp9iPIA3pBUDOtMCJ7hmT29A0pZv93W1qPqHKriJVdQNJ0oKVEI4QIlVAktidQk+u8HpdyN01IIjqQW6IdlcaVdSe+7GXzOTGrzfK7B8EL/vSyUKxe5lOyFZG4hAznQovnQHgOIRU6TfQDz2dEp4CKLtIGgS1A8n6TZFNmY7ZB1Bq8zsmTV3+0sIM+dFiyCWlU2BV8AXlED6KTSxticpR/IhBQrEevuvJn1JHsGAOcxLoklg8g/nRMP3xqDCb02c2BZx7LO5zeD43SfiDJrIHEwBTd/Jyvl833KuF+tfIFhq6DywaPWBlAFj0QRkTRaK6R+LNZN7uKEE19sPPIxiIi7njrVzoWedAkUoai4IRgx9Dtd7uKP/nb5M2yl2AD9UE/zEJP36MjOeQlne0olnE+AnfnYNCLqe4ycxQ7PCI0T+CGBDX9ZRtju1LLnu6ycuHOFi6KfSIhRfO3tfbETZu3ac/9Ykcpd0FWtXhWkzTuf+MJPDE2tc=",
     "ansible_ssh_host_key_rsa_public_keytype": "ssh-rsa",
-    "ansible_swapfree_mb": 3396,
+    "ansible_swapfree_mb": 3394,
     "ansible_swaptotal_mb": 3396,
     "ansible_system": "Linux",
     "ansible_system_capabilities": [
@@ -542,7 +542,7 @@
     ],
     "ansible_system_capabilities_enforced": "True",
     "ansible_system_vendor": "Red Hat",
-    "ansible_uptime_seconds": 24425,
+    "ansible_uptime_seconds": 28364,
     "ansible_user_dir": "/home/kubernetes",
     "ansible_user_gecos": "",
     "ansible_user_gid": 1000,
