@@ -1,12 +1,13 @@
 ---
+
 app_name: angular_poc
 contenedor_nombre: "{{ app_name }}-server"
 current_version: v1
-ruta_directorio: /home/ubuntu/app_node/code/
+ruta_directorio: "/home/flisol-admin/{{ app_name }}/code/"
 contenedor_puerto: 4200
 host_port: 8080
 
-red_servicio_nombre: "{{ app_name }}-network"
+red_servicio_nombre: "flisol-network"
 red_servicio_subnet: 10.0.0.0/16
 red_servicio_puerto_protocolo: "{{ contenedor_puerto }}/tcp"
 
